@@ -1090,6 +1090,18 @@
 	charges = INFINITE_CHARGES
 	desc = "Now with 30% more bluespace technology."
 
+	//used for the tygenian appendix organ
+/obj/item/toy/crayon/spraycan/tygenian
+	name = "finger painting"
+	desc = "A metallic container containing shiny synthesised paint."
+	charges = INFINITE_CHARGES
+	item_flags = ABSTRACT | DROPDEL | HAND_ITEM
+
+//reduce hunger when tygenian spraying
+/obj/item/toy/crayon/spraycan/tygenian/use_charges(mob/user, amount = 1, requires_full = TRUE, override_infinity = FALSE)
+	user.adjust_nutrition(-5)
+	return ..()
+
 #undef RANDOM_GRAFFITI
 #undef RANDOM_LETTER
 #undef RANDOM_PUNCTUATION
